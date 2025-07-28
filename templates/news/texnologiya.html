@@ -1,0 +1,27 @@
+{% extends 'news/base.html' %}
+{% load static %}
+
+{% block title %}Texnologiya yangiliklari{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        {% if texnologiya_yangiliklari %}
+            {% for news in texnologiya_yangiliklari %}
+                <div class="col-sm-6 mb-4">
+                    <div class="card">
+                        <a href="{{ news.get_absolute_url }}">
+                        <img src="{{ news.image.url }}" alt="{{ news.title }}" class="card-img-top" style="max-height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ news.title }}</h5>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Hozircha texnologiya xabarlar mavjud emas.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}

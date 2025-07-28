@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Yangiliklar ro‘yxati</title>
+</head>
+<body>
+<h1>Yangiliklar</h1>
+<ul>
+    {% for news in news_list %}
+        <li><a href="{% url 'news_detail' news.id %}">{{ news.title }}</a></li>
+    {% endfor %}
+</ul>
+</body>
+</html>
