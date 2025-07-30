@@ -1,0 +1,30 @@
+{% block content %}
+    <h2 class="text-center">Yangilik qo'shish</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-info ml-2">Yangilik qo'shish</button>
+    </form>
+
+    <script>
+        function slugify(text) {
+            return text.toString().toLowerCase()
+                .replace(/\s+/g, '-')           // bo'shliqlarni `-` ga almashtiradi
+                .replace(/[^\w\-]+/g, '')       // maxsus belgilarni olib tashlaydi
+                .replace(/\-\-+/g, '-')         // ketma-ket `-` belgilarni bitta qiladi
+                .replace(/^-+/, '')             // boshidagi `-` belgilarni olib tashlaydi
+                .replace(/-+$/, '');            // oxiridagi `-` belgilarni olib tashlaydi
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const titleInput = document.querySelector('#id_title'); // title input ID
+            const slugInput = document.querySelector('#id_slug');   // slug input ID
+
+            if (titleInput && slugInput) {
+                titleInput.addEventListener('input', function () {
+                    slugInput.value = slugify(this.value);
+                });
+            }
+        });
+    </script>
+{% endblock content %}

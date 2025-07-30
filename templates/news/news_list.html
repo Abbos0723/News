@@ -2,14 +2,65 @@
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Yangiliklar ro‘yxati</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px;
+        }
+        li {
+            margin: 10px 0;
+        }
+        a {
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 1.2em;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .no-news {
+            text-align: center;
+            font-size: 1.2em;
+            color: #555;
+        }
+    </style>
 </head>
 <body>
-<h1>Yangiliklar</h1>
-<ul>
-    {% for news in news_list %}
-        <li><a href="{% url 'news_detail' news.id %}">{{ news.title }}</a></li>
-    {% endfor %}
-</ul>
+    <header>
+        <h1>Yangiliklar</h1>
+    </header>
+
+    <main>
+        <ul>
+            {% for news in news_list %}
+                <li>
+                    <a href="{{ news.get_absolute_url }}">{{ news.title }}</a>
+                </li>
+            {% empty %}
+                <li class="no-news">Yangiliklar topilmadi.</li>
+            {% endfor %}
+        </ul>
+    </main>
 </body>
 </html>

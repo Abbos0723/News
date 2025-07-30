@@ -1,16 +1,1 @@
-from django.urls import path
-from .views import news_list, news_detail, homePageView, ContactPageView, Xato404PageView, aboutPageView, HomePageView, MahalliyNewsView, XorijiyNewsView, SportNewsView, TexnologiyaNewsView
-
-
-urlpatterns = [
-    path('', HomePageView.as_view(), name='home_page'),
-    path('news/', news_list, name="all_news_list"),
-    path('news/<slug:news>/', news_detail, name="news_detail_page"),
-    path('contact-us/', ContactPageView.as_view(), name='contact_page'),
-    path('404/', Xato404PageView, name='Xato404-page'),
-    path('about/', aboutPageView, name='about_page'),
-    path('mahalliy/', MahalliyNewsView.as_view(), name='mahalliy_page'),
-    path('xorij', XorijiyNewsView.as_view(), name='xorijiy_page'),
-    path('texnologiya/', TexnologiyaNewsView.as_view(), name='texnologiya_page'),
-    path('sport', SportNewsView.as_view(), name='sport_page'),
-]
+from django.urls import pathfrom .views import news_list, news_detail, homePageView, ContactPageView, Xato404PageView, aboutPageView, HomePageView,\    MahalliyNewsView, XorijiyNewsView, SportNewsView, TexnologiyaNewsView, NewsDeleteView, NewsUpdateView, NewsCreateViewurlpatterns = [    path('', HomePageView.as_view(), name='home_page'),    path('news/', news_list, name="all_news_list"),    path('news/create/', NewsCreateView.as_view(), name='news_create'),    path('news/<slug:news>/', news_detail, name="news_detail_page"),    path('news/<slug:slug>/edit/', NewsUpdateView.as_view(), name='news_update'),    path('news/<slug:slug>/delete/', NewsDeleteView.as_view(), name='news_delete'),    path('contact-us/', ContactPageView.as_view(), name='contact_page'),    path('404/', Xato404PageView, name='Xato404-page'),    path('about/', aboutPageView, name='about_page'),    path('mahalliy/', MahalliyNewsView.as_view(), name='mahalliy_page'),    path('xorij', XorijiyNewsView.as_view(), name='xorijiy_page'),    path('texnologiya/', TexnologiyaNewsView.as_view(), name='texnologiya_page'),    path('sport', SportNewsView.as_view(), name='sport_page'),]

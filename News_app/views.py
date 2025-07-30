@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_list_or_404
-from django.views.generic import TemplateView, ListView
+from django.urls import reverse_lazy
+from django.views.generic import TemplateView, ListView, UpdateView, DeleteView, CreateView
 from .models import New, Category
 from .forms import ContactForm
 from django.shortcuts import get_object_or_404
@@ -127,3 +128,19 @@ class SportNewsView(ListView):
         return news
 
 
+class NewsUpdateView(UpdateView):
+    model = New
+    fields = ('title', 'body', 'category', 'image', 'status', )
+    template_name ='crud/news_edit.html'
+
+
+class NewsDeleteView(DeleteView):
+    model = New
+    template_name ='crud/news_delete.html'
+    success_url = reverse_lazy('home_page')
+
+
+class NewsCreateView(CreateView):
+    model = New
+    template_name ='crud/news_create.html'
+    fields = ('title', 'slug', 'body', 'category', 'image', 'status', )
