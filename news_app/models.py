@@ -1,6 +1,9 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
+from hitcount.models import HitCountMixin, HitCount
+from django.contrib.contenttypes.fields import GenericRelation
 
 
 class PublishedManager(models.Manager):
@@ -15,7 +18,7 @@ class Category(models.Model):
         return self.name
 
 
-class New(models.Model):
+class New(models.Model, HitCountMixin):
     class Status(models.TextChoices):
         Draft = "DF", "Draft"
         Published = "PB", "Published"
@@ -31,7 +34,6 @@ class New(models.Model):
                               choices=Status.choices,
                               default=Status.Draft
                               )
-
     object = models.Manager()
     published = PublishedManager()
 
@@ -52,3 +54,22 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.email
+
+
+class Comment(models.Model):
+    news = models.ForeignKey(New,
+                             on_delete=models.CASCADE,      # news1=New.object.get(id=4)
+                             related_name='comments')        # news1.comments.all()
+    user = models.ForeignKey(User,
+                             on_delete=models.CASCADE,      # user1=New.object.get(id=4)
+                             related_name='comments')        # user1.comments.all()
+    body = models.TextField()
+    created_time = models.DateTimeField(auto_now_add=True)
+    active = models.BooleanField(default=True)
+
+    class Meta:
+        ordering = ['created_time']
+
+    def __str__(self):
+        return f"Comment - {self.body} by {self.user}"
+

@@ -32,7 +32,7 @@ class Migration(migrations.Migration):
                 ('create_time', models.DateTimeField(auto_now_add=True)),
                 ('update_tiem', models.DateTimeField(auto_now=True)),
                 ('status', models.CharField(choices=[('DF', 'Draft'), ('PB', 'Published')], default='DF', max_length=2)),
-                ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='News_app.category')),
+                ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='news_app.category')),
             ],
             options={
                 'ordering': ['-publish_time'],

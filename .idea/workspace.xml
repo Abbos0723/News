@@ -4,7 +4,72 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="643b577c-f392-4431-8d41-c8df76a3e066" name="Default Changelist" comment="" />
+    <list default="true" id="643b577c-f392-4431-8d41-c8df76a3e066" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/News_app/migrations/0003_alter_new_image.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/News_app/migrations/0004_comment.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/News_app/migrations/0005_new_view_count.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/News_app/migrations/0006_remove_new_view_count.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/News_app/migrations/0007_new_view_count.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/News_app/migrations/0008_alter_new_view_count.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/News_app/migrations/0009_alter_new_view_count.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/News_app/migrations/0010_alter_new_view_count.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/News_app/migrations/0011_remove_new_view_count.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/accounts/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/accounts/migrations/0002_rename_users_profile_user_and_more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/accounts/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/coustom_permissions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/users/2025/08/02/2020-03-22-19-00-19-509.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/users/2025/08/03/20200705_103330.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/users/2025/08/03/IMG_20200512_141448_882.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/users/2025/08/03/IMG_20200513_060141_495.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/users/2025/08/03/IMG_20201020_193215_893.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/users/2025/08/04/IMG_20200512_141501_425.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/users/2025/08/04/IMG_20200512_141503_115.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/news_app/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/news_app/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/profile_edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/account/register_done.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/news/search_result.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pages/admin_page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pages/user_profile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/registration/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/registration/password_change.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/registration/password_change_done.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/registration/password_reset_complete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/registration/password_reset_confirm.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/registration/password_reset_done.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/registration/password_reset_email.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/registration/password_reset_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/News_app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_app/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/News_app/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/News_app/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_app/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/News_app/context_processor.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_app/context_processor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/News_app/forms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/News_app/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_app/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/News_app/migrations/0002_contact_alter_new_managers.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_app/migrations/0002_contact_alter_new_managers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/News_app/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_app/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/News_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/News_app/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/news_app/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/News_app/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/News_app/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/news/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/news/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/news/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/news/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/news/mahalliy.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/news/mahalliy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/news/news_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/news/news_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/news/sport.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/news/sport.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/news/texnologiya.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/news/texnologiya.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/news/xorij.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/news/xorij.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -105,8 +170,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -150,9 +215,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="351" />
     <option name="y" value="314" />
@@ -210,14 +275,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "G:/django/django_misol/2.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;G:/django/django_misol/2.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\django\django_misol\2.2" />

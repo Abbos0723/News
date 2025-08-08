@@ -1,0 +1,50 @@
+{% extends 'news/base.html' %}
+{% block title %}Admin sahifasi{% endblock title %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Admin sahifasi</h1>
+    <h3>Barcha admin foydalanuvchilar</h3>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Username</th>
+                <th>Ismi</th>
+                <th>Familiyasi</th>
+                <th>Rasmi</th>
+                <th>Tug‘ilgan sana</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for admin in admin_users %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ admin.username }}</td>
+                <td>{{ admin.first_name|default:"--" }}</td>
+                <td>{{ admin.last_name|default:"--" }}</td>
+                <td>
+                    {% if admin.profile.photo %}
+                        <img src="{{ admin.profile.photo.url }}" width="50" height="50" style="border-radius: 50%;">
+                    {% else %}
+                        Yo‘q
+                    {% endif %}
+                </td>
+                <td>
+                    {% if admin.profile.date_of_birth %}
+                        {{ admin.profile.date_of_birth|date:"d-m-Y" }}
+                    {% else %}
+                        --
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'news_create' %}" class="btn btn-success  mt-3">
+    📰 Yangilik qo‘shish
+</a>
+
+</div>
+{% endblock content %}

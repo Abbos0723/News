@@ -1,0 +1,36 @@
+{% extends 'news/base.html' %}
+{% load static %}
+
+{% block title %}Login sahifasi{% endblock title %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Veb-saytga kirish</h2>
+    <p>Iltimos, saytga kirish uchun quyidagi formani to‘ldiring:</p>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        {% if form.errors %}
+            <div class="alert alert-danger">
+                <ul>
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    {% endfor %}
+                    {% for error in form.non_field_errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        <button type="submit" class="btn btn-primary">Kirish</button>
+    </form>
+    <h4>Agar profilingiz bo'lmasa, quyidagi tugma orqali ro'yxatdan o'ting:</h4>
+    <a href="{% url 'user_register' %}" class="btn btn-primary mt-2">
+    ➕ Ro'yxatdan o'tish
+    </a>
+</div>
+{% endblock content %}

@@ -7,7 +7,7 @@ import django.db.models.manager
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('News_app', '0001_initial'),
+        ('news_app', '0001_initial'),
     ]
 
     operations = [
@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.AlterModelManagers(
-            name='news',
+            name='New',
             managers=[
                 ('object', django.db.models.manager.Manager()),
             ],

@@ -1,4 +1,5 @@
 {% extends 'news/base.html' %}
+{% load hitcount_tags %}
 {% load static %}
 {% block title %} Bosh saxifa {% endblock title %}
 {% block content %}
@@ -25,7 +26,9 @@
                 {% for news in news_list %}
               <li>
                 <div class="media"> <a href="{{ news.get_absolute_url }}" class="media-left"> <img alt="" src="{{ news.image.url }}"> </a>
-                  <div class="media-body"> <a href="{{ news.get_absolute_url }}" class="catg_title"> {{ news.title }}</a> </div>
+                  <div class="media-body"> <a href="{{ news.get_absolute_url }}" class="catg_title"> {{ news.title }}</a>
+                    <p><i class="fa fa-eye"></i> {% get_hit_count for news %}</p>
+                  </div>
                 </div>
               </li>
                 {% endfor %}
@@ -48,7 +51,7 @@
                     {% if forloop.first %}
                 <li>
                   <figure class="bsbig_fig"> <a href="{{ news_mah.get_absolute_url }}" class="featured_img"> <img alt="" src="{{ news_mah.image.url }}"> <span class="overlay"></span> </a>
-                    <figcaption> <a href="{{ news_mah.get_absolute_url }}">{{ news_mah.title | truncatewords:5  }}</a> </figcaption>
+                    <figcaption> <a href="{{ news_mah.get_absolute_url }}">{{ news_mah.title | truncatewords:5  }}</a> </figcaption><p><i class="fa fa-eye"></i> {% get_hit_count for news_mah %}</p>
                     <p>{{ news_mah_one.title }}</p>
                   </figure>
                 </li>
@@ -62,7 +65,9 @@
                     {% if forloop.counter > 1 %}
                 <li>
                   <div class="media wow fadeInDown"> <a href="{{ mahalliy.get_absolute_url }}" class="media-left"> <img alt="" src="{{ mahalliy.image.url }}"> </a>
-                    <div class="media-body"> <a href="{{ mahalliy.get_absolute_url }}" class="catg_title"> {{ mahalliy.title }}</a> </div>
+                    <div class="media-body"> <a href="{{ mahalliy.get_absolute_url }}" class="catg_title"> {{ mahalliy.title }}</a>
+                    <p><i class="fa fa-eye"></i> {% get_hit_count for mahalliy %}</p>
+                    </div>
                   </div>
                 </li>
                     {% endif %}
@@ -79,7 +84,7 @@
                       {% if forloop.first %}
                   <li>
                     <figure class="bsbig_fig"> <a href="{{ xorij.get_absolute_url }}" class="featured_img"> <img alt="" src="{{ xorij.image.url }}"> <span class="overlay"></span> </a>
-                      <figcaption> <a href="{{ xorij.get_absolute_url }}">{{ xorij.title | truncatewords:4 }}</a> </figcaption>
+                      <figcaption> <a href="{{ xorij.get_absolute_url }}">{{ xorij.title | truncatewords:4 }}</a> </figcaption><p><i class="fa fa-eye"></i> {% get_hit_count for xorij %}</p>
                       <p>{{ xorij.tile }}</p>
                     </figure>
                   </li>
@@ -91,7 +96,7 @@
                       {% if forloop.counter > 1 %}
                   <li>
                     <div class="media wow fadeInDown"> <a href="{{ sport.get_absolute_url }}" class="media-left"> <img alt="" src="{{ sport.image.url }}"> </a>
-                      <div class="media-body"> <a href="{{ sport.get_absolute_url }}" class="catg_title"> {{ sport.title }}</a> </div>
+                      <div class="media-body"> <a href="{{ sport.get_absolute_url }}" class="catg_title"> {{ sport.title }}</a> <p><i class="fa fa-eye"></i> {% get_hit_count for sport %}</p></div>
                     </div>
                   </li>
                       {% endif %}
@@ -107,7 +112,7 @@
                       {% if forloop.first %}
                   <li>
                     <figure class="bsbig_fig wow fadeInDown"> <a href="{{ texno.get_absolute_url }}" class="featured_img"> <img alt="" src="{{ texno.image.url }}"> <span class="overlay"></span> </a>
-                      <figcaption> <a href="{{ texno.get_absolute_url }}">{{ texno.title | truncatewords:4 }}</a> </figcaption>
+                      <figcaption> <a href="{{ texno.get_absolute_url }}">{{ texno.title | truncatewords:4 }}</a> </figcaption><p><i class="fa fa-eye"></i> {% get_hit_count for texno %}</p>
                       <p>{{ texno.title }}</p>
                     </figure>
                   </li>
@@ -119,7 +124,7 @@
                       {% if forloop.counter > 1 %}
                   <li>
                     <div class="media wow fadeInDown"> <a href="{{ texno.get_absolute_url }}" class="media-left"> <img alt="" src="{{ texno.image.url }}"> </a>
-                      <div class="media-body"> <a href="{{ texno.get_absolute_url }}" class="catg_title"> {{ texno.title }}</a> </div>
+                      <div class="media-body"> <a href="{{ texno.get_absolute_url }}" class="catg_title"> {{ texno.title }}</a> <p><i class="fa fa-eye"></i> {% get_hit_count for texno %}</p></div>
                     </div>
                   </li>
                       {% endif %}
@@ -172,7 +177,7 @@
                 <li>
                   <figure class="bsbig_fig  wow fadeInDown"> <a class="featured_img" href="{{ sport.get_absolute_url }}"> <img src="{{ sport.image.url }}" alt=""> <span class="overlay"></span> </a>
                     <figcaption> <a href="{{ sport.get_absolute_url }}">{{ sport.title | truncatewords:4 }}</a> </figcaption>
-                    <p>{{ sport.title }}</p>
+                    <p>{{ sport.title }}</p><p><i class="fa fa-eye"></i> {% get_hit_count for sport %}</p>
                   </figure>
                 </li>
                     {% endif %}
@@ -185,7 +190,7 @@
                     {% if forloop.counter > 1 %}
                 <li>
                   <div class="media wow fadeInDown"> <a href="{{ sport.get_absolute_url }}" class="media-left"> <img alt="" src="{{ sport.image.url }}"> </a>
-                    <div class="media-body"> <a href="{{ sport.get_absolute_url }}"> {{ sport.title }}</a> </div>
+                    <div class="media-body"> <a href="{{ sport.get_absolute_url }}"> {{ sport.title }}</a><p><i class="fa fa-eye"></i> {% get_hit_count for sport %}</p> </div>
                   </div>
                 </li>
                     {% endif %}

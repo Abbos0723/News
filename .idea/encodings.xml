@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" addBOMForNewFiles="with NO BOM">
-    <file url="file://$PROJECT_DIR$/News_app/urls.py" charset="UTF-8" />
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/news_app/urls.py" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/templates/crud/news_create.html" charset="UTF-8" />
   </component>
 </project>

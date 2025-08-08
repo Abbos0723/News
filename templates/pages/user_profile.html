@@ -1,0 +1,54 @@
+{% extends 'news/base.html' %}
+{% load static %}
+{% block title %}Foydalanuvchi profili{% endblock title %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Xush kelibsiz, {{ user.get_full_name|default:user.username }}</h2>
+
+    <div class="row mt-4">
+        <!-- Chap tomon: Rasm -->
+        <div class="col-md-4 text-center">
+            {% if profile_info.photo %}
+                <img src="{{ profile_info.photo.url }}" width="250" height="250"
+                     style="border-radius: 50%; border: 3px solid #ccc; object-fit: cover;"
+                     alt="Foydalanuvchi rasmi">
+            {% else %}
+                <p style="color: #888;">Rasm mavjud emas</p>
+            {% endif %}
+        </div>
+
+        <!-- O'ng tomon: Profil ma'lumotlari -->
+        <div class="col-md-8">
+            <div class="card" style="padding: 20px;">
+                <h4>Profil ma'lumotlari:</h4>
+                <ul style="list-style-type: none; padding: 0;">
+                    <li><strong>Tug‘ilgan sana:</strong>
+                        {% if profile_info.date_of_birth %}
+                            {{ profile_info.date_of_birth|date:"d-m-Y" }}
+                        {% else %}
+                            Belgilanmagan
+                        {% endif %}
+                    </li>
+                    <li><strong>Username:</strong> {{ user.username }}</li>
+                    <li><strong>Email:</strong> {{ user.email }}</li>
+                    <li><strong>Ism:</strong> {{ user.first_name|default:"--" }}</li>
+                    <li><strong>Familiya:</strong> {{ user.last_name|default:"--" }}</li>
+                    <li><strong>Ro'yxatdan o'tgan sana:</strong> {{ user.date_joined|date:"d-m-Y H:i" }}</li>
+                    <li><strong>Oxirgi kirish:</strong> {{ user.last_login|date:"d-m-Y H:i" }}</li>
+                    <li style="margin-top: 15px;">
+                        <form method="get" action="{% url 'password_change' %}">
+                            <button type="submit"
+                                    style="background-color: black; color: white;
+                                           border: none; padding: 10px 20px;
+                                           border-radius: 6px; cursor: pointer;">
+                                🔒 Parolni almashtirish
+                            </button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

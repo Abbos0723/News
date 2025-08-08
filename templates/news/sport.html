@@ -1,4 +1,5 @@
 {% extends 'news/base.html' %}
+{% load hitcount_tags %}
 {% load static %}
 
 {% block title %}Sport xabarlar{% endblock title %}
@@ -12,6 +13,7 @@
                     <div class="card">
                         <a href="{{ news.get_absolute_url }}">
                         <img src="{{ news.image.url }}" alt="{{ news.title }}" class="card-img-top" style="max-height: 200px; object-fit: cover;">
+                            <p><i class="fa fa-eye"></i> {% get_hit_count for news %}</p>
                         <div class="card-body">
                             <h5 class="card-title">{{ news.title }}</h5>
                         </div>
