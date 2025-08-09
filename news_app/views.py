@@ -5,7 +5,6 @@ from django.shortcuts import render, get_list_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, UpdateView, DeleteView, CreateView
 from hitcount.utils import get_hitcount_model
-
 from .models import New, Category
 from .forms import ContactForm, CommentForm
 from django.shortcuts import get_object_or_404
@@ -120,6 +119,8 @@ def news_detail(request, news):
 
     }
     return render(request, "news/news_detail.html", context)
+
+
 class HomePageView(ListView):
     model = New
     template_name = 'news/home.html'
@@ -215,19 +216,19 @@ class SportNewsView(ListView):
 class NewsUpdateView(OnlyLoggedSuperUser, UpdateView):
     model = New
     fields = ('title', 'body', 'category', 'image', 'status', )
-    template_name ='crud/news_edit.html'
+    template_name = 'crud/news_edit.html'
 
 
 class NewsDeleteView(OnlyLoggedSuperUser, DeleteView):
     model = New
-    template_name ='crud/news_delete.html'
+    template_name = 'crud/news_delete.html'
     success_url = reverse_lazy('home_page')
 
 
 class NewsCreateView(OnlyLoggedSuperUser, CreateView):
     model = New
-    template_name ='crud/news_create.html'
-    fields = ('title', 'slug', 'body', 'category', 'image', 'status', )
+    template_name = 'crud/news_create.html'
+    fields = ('title', 'title_uz', 'title_ru', 'title_en', 'slug', 'body', 'body_uz', 'body_ru', 'body_en', 'category', 'image', 'status', )
 
 # class NewsCreateView(OnlyLoggedSuperUser, CreateView):
 #   model = New

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+{% load i18n %}
 <html>
 <head>
 <title>{% block title %} {% endblock title %}</title>
@@ -63,6 +64,22 @@
               <a href="{% url 'login' %}" style="color:white; text-decoration: none;">Login</a>
             {% endif %}
             <span>{% now "jS F Y H:i" %}</span>
+            <!-- templates/includes/language_switcher.html -->
+            <form action="{% url 'set_language' %}" method="post" style="display: inline-block;">
+              {% csrf_token %}
+            <input name="next" type="hidden" value="{{ redirect_to }}">
+            <select name="language" style="color: black;" onchange="this.form.submit()">
+              {% get_current_language as LANGUAGE_CODE %}
+              {% get_available_languages as LANGUAGES %}
+              {% get_language_info_list for LANGUAGES as languages %}
+              {% for lang in languages %}
+            <option value="{{ lang.code }}" {% if lang.code == LANGUAGE_CODE %}selected{% endif %}>
+                {{ lang.name_local }} ({{ lang.code }})
+            </option>
+              {% endfor %}
+            </select>
+          </form>
+
           </div>
         </div>
       </div>
