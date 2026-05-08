@@ -1,0 +1,23 @@
+{% extends 'newsapp/base.html' %}
+
+{% block content1 %}
+<div class="article-wrapper">
+
+    <div class="article-meta">
+        {{ new.created_at|date:"d.m.Y H:i" }} | 👁 {{ new.count_views }}
+    </div>
+
+    <h1>{{ new.title }}</h1>
+
+    <div class="article-lead">
+        {{ new.description }}
+    </div>
+
+    <img src="{{ new.image.url }}" alt="{{ new.title }}">
+
+    <div class="article-content">
+        {{ new.content|linebreaks }}
+    </div>
+
+</div>
+{% endblock %}

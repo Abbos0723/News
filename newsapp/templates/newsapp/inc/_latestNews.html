@@ -1,0 +1,9 @@
+<div class="sidebar-card">
+  <h5>So‘nggi yangiliklar</h5>
+  {% for new in latest_news %}
+    <div class="sidebar-item">
+      <span class="time">{{ new.created_at|date:"d.m H:i" }}</span>
+      <a href="{% url 'read_more' new.slug %}">{{ new.title|truncatechars:60 }}</a>
+    </div>
+  {% endfor %}
+</div>

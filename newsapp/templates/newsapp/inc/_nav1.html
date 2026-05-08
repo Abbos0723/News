@@ -1,0 +1,16 @@
+<nav class="navbar navbar-expand-lg bg-white border-bottom">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="/">Kun.uz</a>
+    <div class="collapse navbar-collapse show">
+      <ul class="navbar-nav category-bar">
+        {% for category in categories %}
+          <li class="nav-item">
+            <a class="nav-link category-pill" href="{% url 'category_news' category.slug %}">
+              {{ category.name }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</nav>

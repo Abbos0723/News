@@ -1,0 +1,19 @@
+{% extends 'newsapp/base.html' %}
+{% block content %}
+<h3 class="mb-3">{{ title }}</h3>
+
+{% for n in news %}
+<div class="card mb-3 shadow-sm">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="{{ n.image.url }}" class="img-fluid rounded-start">
+        </div>
+        <div class="col-md-8 p-3">
+            <h5><a href="{% url 'read_more' n.slug %}">{{ n.title }}</a></h5>
+            <p class="text-muted small">{{ n.created_at|date:"d.m.Y H:i" }}</p>
+            <p>{{ n.content|truncatechars:180 }}</p>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
