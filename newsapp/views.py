@@ -1,53 +1,51 @@
-from django.shortcuts import render, get_object_or_404
+from django.core.paginator import Paginator
 from django.db.models import F
-from newsapp.models import *
+from django.shortcuts import render, get_object_or_404
+
+from newsapp.models import Category, News, Region, Tag
+
+PAGE_SIZE = 10
+
+
+def _paginate(request, queryset):
+    paginator = Paginator(queryset, PAGE_SIZE)
+    return paginator.get_page(request.GET.get('page'))
 
 
 def home(request):
-    context = {
-        "news": News.objects.order_by("-created_at")
-    }
-    return render(request, "newsapp/home.html", context)
+    return render(request, "newsapp/home.html", {
+        "page_obj": _paginate(request, News.objects.order_by("-created_at")),
+    })
 
 
 def category_news(request, slug):
     category = get_object_or_404(Category, slug=slug)
-    news = News.objects.filter(category=category)
-    context = {
+    return render(request, "newsapp/category_news.html", {
         'category': category,
-        'news': news,
-    }
-    return render(request, "newsapp/category_news.html", context)
+        'page_obj': _paginate(request, News.objects.filter(category=category)),
+    })
 
 
 def region_news(request, slug):
     region = get_object_or_404(Region, slug=slug)
-    news = News.objects.filter(region=region)
-    context = {
+    return render(request, "newsapp/region_news.html", {
         'region': region,
-        'news': news,
-    }
-    return render(request, "newsapp/region_news.html", context)
+        'page_obj': _paginate(request, News.objects.filter(region=region)),
+    })
 
 
 def read_more(request, slug):
     new = get_object_or_404(News, slug=slug)
-    most_viewed = News.objects.order_by('-count_views')
     News.objects.filter(pk=new.pk).update(count_views=F('count_views') + 1)
-
-    context = {
+    return render(request, "newsapp/read_more.html", {
         'new': new,
-        'most_viewed': most_viewed,
-    }
-    return render(request, "newsapp/read_more.html", context)
+        'most_viewed': News.objects.order_by('-count_views')[:10],
+    })
 
 
 def tag_news(request, slug):
     tag = get_object_or_404(Tag, slug=slug)
-    tag_news = News.objects.filter(tags=tag)
-
-    context = {
+    return render(request, "newsapp/tag_news.html", {
         'tag': tag,
-        'tag_news': tag_news,
-    }
-    return render(request, "newsapp/tag_news.html", context)
+        'page_obj': _paginate(request, News.objects.filter(tags=tag)),
+    })

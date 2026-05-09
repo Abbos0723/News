@@ -1,23 +1,40 @@
 {% extends 'newsapp/base.html' %}
 
+{% block title %}{{ new.title }}{% endblock %}
+{% block meta_description %}{{ new.description|default:new.content|truncatechars:160 }}{% endblock %}
+{% block og_title %}{{ new.title }}{% endblock %}
+{% block og_description %}{{ new.description|default:new.content|truncatechars:160 }}{% endblock %}
+{% block og_image %}<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ new.image.url }}">{% endblock %}
+
 {% block content1 %}
 <div class="article-wrapper">
 
-    <div class="article-meta">
-        {{ new.created_at|date:"d.m.Y H:i" }} | 👁 {{ new.count_views }}
+    <div class="article-meta text-muted small mb-2">
+        {{ new.created_at|date:"d.m.Y H:i" }}
+        {% if new.category %}&nbsp;&bull;&nbsp;<a href="{{ new.category.get_absolute_url }}">{{ new.category.name }}</a>{% endif %}
+        {% if new.region %}&nbsp;&bull;&nbsp;<a href="{{ new.region.get_absolute_url }}">{{ new.region.name }}</a>{% endif %}
+        &nbsp;&bull;&nbsp;Ko'rishlar: {{ new.count_views }}
     </div>
 
     <h1>{{ new.title }}</h1>
 
-    <div class="article-lead">
-        {{ new.description }}
-    </div>
+    {% if new.description %}
+    <div class="article-lead">{{ new.description }}</div>
+    {% endif %}
 
-    <img src="{{ new.image.url }}" alt="{{ new.title }}">
+    <img src="{{ new.image.url }}" alt="{{ new.title }}" class="img-fluid rounded mb-3">
 
     <div class="article-content">
         {{ new.content|linebreaks }}
     </div>
+
+    {% if new.tags.exists %}
+    <div class="article-tags mt-3">
+        {% for tag in new.tags.all %}
+        <a href="{{ tag.get_absolute_url }}" class="badge bg-secondary text-decoration-none me-1">#{{ tag.name }}</a>
+        {% endfor %}
+    </div>
+    {% endif %}
 
 </div>
 {% endblock %}
